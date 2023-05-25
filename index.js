@@ -1,7 +1,10 @@
 import { Worker } from 'worker_threads'
-import path from 'path'
-import Queue from './Queue'
-import { MSG_DONE, MSG_ERR, MSG } from 'constants'
+import path, { dirname } from 'path'
+import { fileURLToPath } from 'url'
+import Queue from './Queue.js'
+import { MSG_DONE, MSG_ERR, MSG } from './constants.js'
+
+const __dirname = dirname(fileURLToPath(import.meta.url))
 
 class SmurfWorkers {
     constructor ({ jobPath, log }) {
